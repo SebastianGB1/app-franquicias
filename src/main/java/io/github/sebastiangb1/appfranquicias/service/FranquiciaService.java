@@ -25,4 +25,8 @@ public class FranquiciaService {
         franquiciaUpdate.setNombre(franquicia.getNombre());
         return franquiciaRepo.save(franquiciaUpdate);
     }
+
+    public Franquicia findByID(Long id){
+        return franquiciaRepo.findById(id).orElseThrow();
+    }
 }
