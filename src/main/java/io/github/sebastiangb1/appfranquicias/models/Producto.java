@@ -1,5 +1,6 @@
 package io.github.sebastiangb1.appfranquicias.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Generated;
@@ -16,9 +17,10 @@ public class Producto {
     @Column(nullable = false, name = "nombre")
     private String nombre;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "stock")
     private int stock;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "sucursal_id", nullable = false)
     private Sucursal sucursal;
