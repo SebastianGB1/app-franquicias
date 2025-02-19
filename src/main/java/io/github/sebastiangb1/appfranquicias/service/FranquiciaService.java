@@ -1,5 +1,6 @@
 package io.github.sebastiangb1.appfranquicias.service;
 
+import io.github.sebastiangb1.appfranquicias.exception.RecursoNoEncontradoException;
 import io.github.sebastiangb1.appfranquicias.models.Franquicia;
 import io.github.sebastiangb1.appfranquicias.repository.FranquiciaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,12 @@ public class FranquiciaService {
     }
 
     public Franquicia update(Long id, Franquicia franquicia){
-        Franquicia franquiciaUpdate = franquiciaRepo.findById(id).orElseThrow();
+        Franquicia franquiciaUpdate = franquiciaRepo.findById(id).orElseThrow(()->new RecursoNoEncontradoException("Franquicia no encontrada"));
         franquiciaUpdate.setNombre(franquicia.getNombre());
         return franquiciaRepo.save(franquiciaUpdate);
     }
 
     public Franquicia findByID(Long id){
-        return franquiciaRepo.findById(id).orElseThrow();
+        return franquiciaRepo.findById(id).orElseThrow(()->new RecursoNoEncontradoException("Franquicia no encontrada"));
     }
 }

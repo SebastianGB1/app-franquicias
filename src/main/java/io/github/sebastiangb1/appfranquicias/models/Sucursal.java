@@ -1,5 +1,6 @@
 package io.github.sebastiangb1.appfranquicias.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,6 +18,7 @@ public class Sucursal {
     @Column(nullable = false)
     private String nombre;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "franquicia_id", nullable = false)
     private Franquicia franquicia;
