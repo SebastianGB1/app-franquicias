@@ -40,4 +40,24 @@ public class ProductoController {
                 .build());
     }
 
+    @PutMapping("updateNombre/{producto_id}/{nombre}")
+    public ResponseEntity<ApiResponse> update(@PathVariable("producto_id") Long producto_id, @PathVariable("nombre") String nombre){
+        Producto producto = productoService.update(producto_id, nombre);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .message("Producto actualizado")
+                .data(producto)
+                .build());
+    }
+
+    @PutMapping("updateStock/{producto_id}/{stock}")
+    public ResponseEntity<ApiResponse> updateStock(@PathVariable("producto_id") Long producto_id, @PathVariable("stock") int stock){
+        Producto producto = productoService.update(producto_id, stock);
+        return ResponseEntity.ok(ApiResponse.builder()
+                .success(true)
+                .message("Producto actualizado")
+                .data(producto)
+                .build());
+    }
+
 }

@@ -26,4 +26,16 @@ public class ProductoService {
         Sucursal sucursal = sucursalRepo.findById(sucursal_id).orElseThrow(()->new RecursoNoEncontradoException("Sucursal no encontrada"));
         return productoRepo.findBySucursal(sucursal);
     }
+
+    public Producto update(Long productoId, String nombre){
+        Producto productoUpdate = productoRepo.findById(productoId).orElseThrow(()->new RecursoNoEncontradoException("Producto no encontrado"));
+        productoUpdate.setNombre(nombre);
+        return productoRepo.save(productoUpdate);
+    }
+
+    public Producto update(Long productoId, int stock){
+        Producto productoUpdate = productoRepo.findById(productoId).orElseThrow(()->new RecursoNoEncontradoException("Producto no encontrado"));
+        productoUpdate.setStock(stock);
+        return productoRepo.save(productoUpdate);
+    }
 }
