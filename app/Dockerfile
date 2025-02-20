@@ -1,12 +1,9 @@
-FROM openjdk:17-jdk-slim
+FROM maven:3.9.6-eclipse-temurin-17
 
 WORKDIR /app
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:go-offline
+COPY . ./
 
-COPY src ./src
 COPY entrypoint.sh ./
 RUN chmod +x ./entrypoint.sh
 

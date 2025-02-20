@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-./mvnw package
+mvn package
 
 
 exec java -jar \
