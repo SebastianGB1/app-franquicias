@@ -2,14 +2,6 @@
 
 Este documento proporciona las instrucciones para construir y ejecutar la aplicación dentro de un contenedor Docker.
 
-# Live demo
-
-Puedes probar la API consultando los endpoints desde la siguiente direccion
-
-````bash
-http://demohubcentral.hopto.org:8085/api/franquicias
-````
-
 Los endpoints disponibles estan en la coleccion de postman del proyecto
 
 # Instrucciones de instalacion
